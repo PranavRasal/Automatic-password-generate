@@ -18,6 +18,10 @@ function App() {
     setPassword(pass)
   }, [lenght, numberAllow, charAllow])
 
+  const copy = useCallback(()=>{
+    window.navigator.clipboard.writeText(password)
+  },[])
+
   useEffect(() => {
   passwordGenerator()
   },
@@ -43,9 +47,12 @@ overflow-hidden mb-2 mt-2"
             placeholder=" Password"
             readOnly
           />
-          <button className="bg-blue-500 w-15" type="button">
-            {" "}
-            Copy
+          <button className="bg-blue-500 w-15" 
+          type="button"
+          onClick={copy}
+          >
+           
+            <label className=" text-center">copy</label>
           </button>
         </div>
         <div className="flex gap-3 items-center">
