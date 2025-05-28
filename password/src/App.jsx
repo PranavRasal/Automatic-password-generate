@@ -11,15 +11,15 @@ function App() {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numberAllow) str += "0123456789"
     if (charAllow) str += "!@#$%^&*()_+=?/|;:{}[]"
-
     for ( let i = 1; i <= lenght; i++) {
       let char = Math.floor(Math.random() * str.length + 1)
       pass += str.charAt(char)}
     setPassword(pass)
   }, [lenght, numberAllow, charAllow])
 
-  const copy = useCallback(()=>{
-    window.navigator.clipboard.writeText(password)
+  const copyPassword = useCallback(()=>{
+  window.navigator.clipboard.writeText(password)
+  console.log("hello")
   },[])
 
   useEffect(() => {
@@ -48,11 +48,9 @@ overflow-hidden mb-2 mt-2"
             readOnly
           />
           <button className="bg-blue-500 w-15" 
-          type="button"
-          onClick={copy}
-          >
-           
-            <label className=" text-center">copy</label>
+          onClick={copyPassword}
+          type="button">
+          <label className=" text-center">copy</label>
           </button>
         </div>
         <div className="flex gap-3 items-center">
