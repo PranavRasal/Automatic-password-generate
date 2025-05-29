@@ -19,8 +19,14 @@ function App() {
 
   const copyPassword = useCallback(()=>{
   window.navigator.clipboard.writeText(password)
-  console.log("hello")
-  },[])
+  // navigator.clipboard.writeText(password)
+  .then(() => {
+      console.log("Text copied!");
+    })
+    .catch((err) => {
+      console.error("Failed to copy:",err);
+    });
+  },[password])
 
   useEffect(() => {
   passwordGenerator()
